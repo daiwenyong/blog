@@ -1,0 +1,18 @@
+<%- include('../layout.ejs')%>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li><a href="/api/admin/category">内容首页</a></li>
+    <li class="active">内容删除</li>
+  </ol>
+  <h3>内容删除</h3>
+
+<!--action='/api/admin/category/update' action不写默认是本地地址带requery 如果写了地址就不会有requery-->
+  <form method="post">
+    <div class="form-group">
+      <label>内容名称</label>
+      <input type="text" class="form-control" name="title" value="<%= result.title%>">
+    </div>
+
+    <button type="submit" class="btn btn-default">点击删除内容</button>
+  </form>
+</div>

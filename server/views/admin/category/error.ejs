@@ -1,0 +1,21 @@
+<%- include('../layout')%>
+<div class="container-fluid">
+    <ol class="breadcrumb">
+        <li><a href="/api/admin/category/showAdd">分类首页</a></li>
+        <li class="active">分类添加</li>
+    </ol>
+    <h3>分类添加</h3>
+
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <h3 class="panel-title">错误提示!!</h3>
+        </div>
+        <div class="panel-body">
+            <%= message %>
+        </div>
+        <div class="panel-heading">
+          <a href="javascript:window.history.go(-1)">返回上一步</a>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,44 @@
+<%- include('../layout.ejs') %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li><a href="#">用户首页</a></li>
+    <li class="active">内容列表</li>
+  </ol>
+  <h2>内容列表</h2>
+  <table class="table table-hover">
+    <tr>
+      <td>id</td>
+      <td>分类名</td>
+      <td>简介</td>
+      <!--<td>图片</td>-->
+      <td>内容</td>
+      <td>时间</td>
+      <td>作者</td>
+      <td>操作</td>
+    </tr>
+    <% for(let i=0;i<contents.length;i++){   %>
+    <tr>
+      <td><%= contents[i]._id%></td>
+      <td><%= contents[i].category.name%></td>
+      <td><%= contents[i].description%></td>
+      <!--<td><%= contents[i].url%></td>-->
+      <td><%= contents[i].content%></td>
+      <td><%= contents[i].time.toLocaleString() %></td>
+      <td><%= contents[i].author.username%></td>
+      <td>
+        <span><a href="/api/admin/content/update?id=<%= contents[i]._id %>">修改</a></span>
+        <span><a href="/api/admin/content/delete?id=<%= contents[i]._id%>">删除</a></span>
+      </td>
+    </tr>
+    <%}%>
+  </table>
+
+  <nav aria-label="...">
+    <ul class="pager">
+      <li class="previous"><a href="/api/admin/content?page=<%= page-1 %>"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+      <li class="next"><a href="/api/admin/content?page=<%= page+1 %>">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+      <li> <%= page %>/<%= maxPage %></li>
+    </ul>
+  </nav>
+</div>
+

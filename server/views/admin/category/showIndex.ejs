@@ -1,0 +1,34 @@
+<%- include('../layout.ejs') %>
+<div class="container-fluid">
+  <ol class="breadcrumb">
+    <li><a href="#">用户首页</a></li>
+    <li class="active">分类列表</li>
+  </ol>
+  <h2>分类列表</h2>
+  <table class="table table-hover">
+    <tr>
+      <td>id</td>
+      <td>分类名</td>
+      <td>操作</td>
+    </tr>
+    <% for(let i=0;i<users.length;i++){   %>
+    <tr>
+      <td><%= users[i]._id%></td>
+      <td><%= users[i].name%></td>
+      <td>
+        <span><a href="/api/admin/category/update?category=<%= users[i].name %>">修改</a></span>
+        <span><a href="/api/admin/category/delete?category=<%= users[i].name%>">删除</a></span>
+      </td>
+    </tr>
+    <%}%>
+  </table>
+
+  <nav aria-label="...">
+    <ul class="pager">
+      <li class="previous"><a href="/api/admin/category?page=<%= page-1 %>"><span aria-hidden="true">&larr;</span> 上一页</a></li>
+      <li class="next"><a href="/api/admin/category?page=<%= page+1 %>">下一页 <span aria-hidden="true">&rarr;</span></a></li>
+      <li> <%= page %>/<%= maxPage %></li>
+    </ul>
+  </nav>
+</div>
+

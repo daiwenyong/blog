@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <p id="p"></p>
+
+  <script>
+    function word(){
+    let str = '你好,欢迎来到我的博客';
+    let i =0;
+    let timer = setInterval(function () {
+      p.innerText = str.slice(0,++i)+"^_^"+'⭐️'
+
+      if(i==str.length){
+        clearInterval(timer);
+        setTimeout(function () {
+          p.innerText = ''
+        },1000)
+      }
+    },200)
+    }
+
+
+  </script>
+</body>
+</html>
+<!--
+  go :
+    x:10
+    a:fn
+    y:fn(){x=2}
+
+-->
